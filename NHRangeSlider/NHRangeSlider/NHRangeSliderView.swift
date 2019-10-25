@@ -110,7 +110,14 @@ open class NHRangeSliderView: UIView {
             self.rangeSlider?.gapBetweenThumbs = gapBetweenThumbs
         }
     }
-    
+
+    /// line height for track between 2 thumbs
+    @IBInspectable open var trackLineHeight: Double = 8 {
+        didSet {
+            self.rangeSlider?.trackLineHeight = trackLineHeight
+        }
+    }
+
     /// tint color for track between 2 thumbs
     @IBInspectable open var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0) {
         didSet {
