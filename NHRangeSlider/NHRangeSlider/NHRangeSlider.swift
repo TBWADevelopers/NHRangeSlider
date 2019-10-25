@@ -304,7 +304,7 @@ open class NHRangeSlider: UIControl {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         
-        trackLayer.frame = bounds.insetBy(dx: 0.0, dy: bounds.height - CGFloat(trackLineHeight))
+        trackLayer.frame = bounds.insetBy(dx: 0.0, dy: (bounds.height - CGFloat(trackLineHeight))/2)
         trackLayer.setNeedsDisplay()
         
         let lowerThumbCenter = CGFloat(positionForValue(lowerValue))
