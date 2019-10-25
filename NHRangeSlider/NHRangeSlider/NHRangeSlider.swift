@@ -150,7 +150,7 @@ open class NHRangeSlider: UIControl {
     
     
     /// stepValue. If set, will snap to discrete step points along the slider . Default to nil
-    @IBInspectable open var stepValue: Double? = nil {
+    open var stepValue: Double? = nil {
         willSet(newValue) {
             if newValue != nil {
                 assert(newValue! > 0, "NHRangeSlider: stepValue must be positive")
@@ -171,7 +171,14 @@ open class NHRangeSlider: UIControl {
     
     /// minimum distance between the upper and lower thumbs.
     @IBInspectable open var gapBetweenThumbs: Double = 2.0
-    
+
+    /// track line height
+    @IBInspectable open var trackLineHeight: Double = 8 {
+        didSet {
+            updateLayerFrames()
+        }
+    }
+
     /// tint color for track between 2 thumbs
     @IBInspectable open var trackTintColor: UIColor = UIColor(white: 0.9, alpha: 1.0) {
         didSet {
@@ -297,7 +304,7 @@ open class NHRangeSlider: UIControl {
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         
-        trackLayer.frame = bounds.insetBy(dx: 0.0, dy: bounds.height/3)
+        trackLayer.frame = bounds.insetBy(dx: 0.0, dy: bounds.height - CGFloat(trackLineHeight))
         trackLayer.setNeedsDisplay()
         
         let lowerThumbCenter = CGFloat(positionForValue(lowerValue))

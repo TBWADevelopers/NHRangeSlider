@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.name         = "NHRangeSlider"
   s.version      = "0.2"
   s.summary      = "A custom range slider in Swift."
-
+  s.swift_version = "5.0"
   s.description  = <<-DESC
                    A custom range slider in Swift. Circle/square left right thumbs with labels and custom string format.
                    DESC
