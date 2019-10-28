@@ -397,9 +397,9 @@ open class NHRangeSlider: UIControl {
         }
         
         // only send changed value if stepValue is not set. We will trigger this later in endTracking
-        if stepValue == nil {
+        //if stepValue == nil {
             sendActions(for: .valueChanged)
-        }
+        //}
         
         return true
     }
